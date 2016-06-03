@@ -23,7 +23,6 @@
   time.timeZone = "Europe/Bucharest";
   environment.systemPackages = with pkgs; [
     which
-    unrar
     unzip
     awesome
     terminator
