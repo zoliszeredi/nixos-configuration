@@ -22,6 +22,9 @@
   };
   time.timeZone = "Europe/Bucharest";
   environment.systemPackages = with pkgs; [
+    which
+    unrar
+    unzip
     awesome
     terminator
     wget
@@ -38,6 +41,12 @@
     fira-mono
     python27Full
     python27Packages.virtualenv
+
+    avrdude
+    avrgcclibc
+
+    xlibs.xmodmap
+    xlibs.xclock
   ];
   fonts = {
     enableFontDir = true;
