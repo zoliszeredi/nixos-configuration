@@ -22,6 +22,7 @@
   };
   time.timeZone = "Europe/Bucharest";
   environment.systemPackages = with pkgs; [
+    bc
     which
     unzip
     awesome
@@ -33,6 +34,10 @@
     gnupg
     emacs
     vim 
+    neovim
+    leiningen
+    nodejs
+    sbcl
     git
     zathura
     mplayer
@@ -40,6 +45,7 @@
     fira-mono
     python27Full
     python27Packages.virtualenv
+    python27Packages.pylint
 
     avrdude
     avrgcclibc
