@@ -35,6 +35,7 @@
     emacs
     vim 
     neovim
+    vagrant
     leiningen
     nodejs
     sbcl
