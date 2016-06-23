@@ -90,5 +90,6 @@
   };
   users.defaultUserShell = "/run/current-system/sw/bin/zsh";
   users.extraGroups.vboxusers.members = [ "stz" ];
+  users.extraGroups.docker.members = [ "stz" ];
   system.stateVersion = "16.03";
 }
