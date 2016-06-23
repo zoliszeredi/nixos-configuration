@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   imports =
-    [ 
+    [
       ./hardware-configuration.nix
     ];
   boot.loader.grub.enable = true;
@@ -29,10 +29,14 @@
     terminator
     wget
     curl
+
     firefox
+    chromium
+
     tmux
     gnupg
     emacs
+
     vim 
     neovim
     vagrant
@@ -44,6 +48,10 @@
     mplayer
     deluge
     fira-mono
+
+    docker-compose
+    vagrant
+
     python27Full
     python27Packages.virtualenv
     python27Packages.pylint
@@ -74,6 +82,7 @@
   services.xserver.videoDrivers = [ "ati" ];
   programs.zsh.enable = true;
   virtualisation.virtualbox.host.enable = true;
+  virtualisation.docker.enable = true;
   users.extraUsers.stz = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
