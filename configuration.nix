@@ -54,6 +54,7 @@
     fira-mono
 
     vagrant
+    steam
 
     python27Full
     python27Packages.virtualenv
