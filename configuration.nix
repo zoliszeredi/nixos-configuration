@@ -27,6 +27,7 @@
     unzip
     awesome
     terminator
+    audacious
     wget
     curl
 
@@ -35,6 +36,8 @@
 
     tmux
     gnupg
+    gnumake
+    cmake
     emacs
 
     vim 
@@ -49,11 +52,11 @@
     deluge
     fira-mono
 
-    docker-compose
     vagrant
 
     python27Full
     python27Packages.virtualenv
+    python27Packages.docker_compose
     python27Packages.pylint
 
     avrdude
