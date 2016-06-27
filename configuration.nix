@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 {
+  nixpkgs.config.allowUnfree = true;
   imports =
     [
       ./hardware-configuration.nix
@@ -80,9 +81,8 @@
   services.xserver.enable = true;
   services.xserver.layout = "us";
   services.xserver.windowManager.awesome.enable = true;
-  services.xserver.displayManager.kdm.enable = true;
-  services.xserver.desktopManager.kde4.enable = true;
-  services.xserver.videoDrivers = [ "ati" ];
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.videoDrivers = [ "ati_unfree" ];
   programs.zsh.enable = true;
   virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
