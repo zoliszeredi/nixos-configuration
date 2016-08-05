@@ -20,6 +20,7 @@
     consoleFont = "Fira Mono";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
+    inputMethod.enabled = "uim";
   };
   time.timeZone = "Europe/Bucharest";
   environment.systemPackages = with pkgs; [
@@ -27,8 +28,7 @@
     which
     unzip
     awesome
-    terminator
-    audacious
+    audacity
     wget
     curl
 
@@ -41,7 +41,6 @@
     cmake
     emacs
 
-    vim 
     neovim
     vagrant
     leiningen
@@ -56,14 +55,17 @@
     vagrant
     steam
 
-    python27Full
-    python27Packages.virtualenv
-    python27Packages.docker_compose
-    python27Packages.pylint
+    python35
+    python35Packages.virtualenv
+    python35Packages.docker_compose
+    python35Packages.pylint
+
+    tor
 
     avrdude
     avrgcclibc
 
+    xlockmore
     xlibs.xmodmap
     xlibs.xclock
   ];
