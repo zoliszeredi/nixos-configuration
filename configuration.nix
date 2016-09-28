@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 {
   nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.firefox.enableGeckoMediaPlayer = true;  # broken
+  nixpkgs.config.firefox.enableAdobeFlash = true;
+  nixpkgs.config.firefox.enableGoogleTalkPlugin = true;
   imports =
     [
       ./hardware-configuration.nix
@@ -17,10 +20,10 @@
     enableAllFirmware = true;
   };
   i18n = {
-    consoleFont = "Fira Mono";
+    # consoleFont = "Fira Mono";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
-    inputMethod.enabled = "uim";
+    # inputMethod.enabled = "uim";
   };
   time.timeZone = "Europe/Bucharest";
   environment.systemPackages = with pkgs; [
@@ -33,11 +36,17 @@
     curl
 
     firefox
+    thunderbird
     chromium
 
     tmux
     gnupg
     gnumake
+    paperkey
+    tesseract
+    qrencode
+    zbar
+    scrot
     cmake
     emacs
 
@@ -54,11 +63,12 @@
 
     vagrant
     steam
+    eagle
 
     python35
     python35Packages.virtualenv
-    python35Packages.docker_compose
     python35Packages.pylint
+    python35Packages.ipython
 
     tor
 
@@ -85,7 +95,11 @@
   services.xserver.layout = "us";
   services.xserver.windowManager.awesome.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.videoDrivers = [ "ati_unfree" ];
+  # services.xserver.videoDrivers = [ "ati_unfree" ];
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.gutenprint ];
+  };
   programs.zsh.enable = true;
   virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
@@ -97,5 +111,4 @@
   users.defaultUserShell = "/run/current-system/sw/bin/zsh";
   users.extraGroups.vboxusers.members = [ "stz" ];
   users.extraGroups.docker.members = [ "stz" ];
-  system.stateVersion = "16.03";
 }
