@@ -2,7 +2,7 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.firefox.enableAdobeFlash = true;
+  # nixpkgs.config.firefox.enableAdobeFlash = true;
   imports =
     [ 
       ./hardware-configuration.nix
@@ -40,6 +40,8 @@
       thunderbird
       chromium
 
+      geckodriver
+
       tmux
       gnupg
       gnumake
@@ -59,6 +61,13 @@
       hunspellDicts.hu-hu
       hunspellDicts.en-us
 
+      libreoffice
+      remmina
+      
+
+      dict
+      groff
+
       gcc
       rlwrap
       rxvt_unicode-with-plugins
@@ -74,15 +83,25 @@
       deluge
       audacity
 
+      skypeforlinux
+      zoom-us
+
       dosbox
       steam
       eagle
       spotify
+      yubikey-manager
+      pam_u2f
+      pcsctools
 
-      python37
-      python37Packages.ipython
-      python37Packages.black
-      python37Packages.flake8
+      python38Full
+      pypy3
+      # python38Packages.ipython
+      # python38Packages.black
+      # python38Packages.flake8
+      # python38Packages.isort
+      # python38Packages.mypy
+      # python38Packages.poetry
       # pypy3
 
       docker-compose
@@ -90,8 +109,11 @@
       tor
 
       lshw
+      lsof
       gparted
       cargo
+      nmap-graphical
+      scanmem
 
       xlockmore
       xlibs.xmodmap
@@ -125,6 +147,7 @@
   services.xserver.windowManager.awesome.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
   services.printing.enable = true;
+  services.pcscd.enable = true;
   sound.enable = true;
   hardware = {
     opengl.enable = true;
@@ -133,6 +156,8 @@
     pulseaudio.enable = true;
     pulseaudio.support32Bit = true;
     enableAllFirmware = true;
+    steam-hardware.enable = true;
+    u2f.enable = true;
   };
 
   services.xserver.libinput.enable = true;
@@ -156,8 +181,8 @@
   services.memcached.enable = true;
   services.rabbitmq.enable = true;
 
-  # virtualisation.virtualbox.host.enable = true;
-  # virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
   virtualisation.docker.enable = true;
   users.users.stz = {
     isNormalUser = true;
@@ -168,6 +193,5 @@
   users.extraGroups.vboxusers.members = [ "stz" ];
   users.extraGroups.docker.members = [ "stz" ];
 
-  system.stateVersion = "19.03";
-
+  system.stateVersion = "19.09";
 }
